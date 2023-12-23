@@ -1,3 +1,5 @@
+print("Операция начата")
+
 import os
 import random
 import argparse
