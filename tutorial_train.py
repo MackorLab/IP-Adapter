@@ -405,7 +405,7 @@ def main():
             if global_step % args.save_steps == 0:
                 save_path = os.path.join(args.output_dir, f"checkpoint-{global_step}")
                 accelerator.save_state(save_path)
-                print("Операция завершена. Файлы сохранены в папку:", output_dir)
+                print("Операция завершена. Файлы сохранены в папку")
             begin = time.perf_counter()
                 
 if __name__ == "__main__":
