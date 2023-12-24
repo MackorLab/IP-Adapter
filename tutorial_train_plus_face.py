@@ -56,7 +56,10 @@ class MyDataset(torch.utils.data.Dataset):
         # read image
         raw_image = Image.open(os.path.join(self.image_root_path, image_file))
         image = self.transform(raw_image.convert("RGB"))
-        clip_image = self.clip_image_processor(images=raw_image, return_tensors="pt").pixel_values
+        face_image_file = item["face_image_file"] # Добавил эту строку
+        raw_face_image = Image.open(os.path.join(self.image_root_path, face_image_file)) # Добавил эту строку
+        # clip_image = self.clip_image_processor(images=raw_image, return_tensors="pt").pixel_values
+        clip_image = self.clip_image_processor(images=raw_face_image, return_tensors="pt").pixel_values # Заменил строку выше, на эту
         
         # drop
         drop_image_embed = 0
